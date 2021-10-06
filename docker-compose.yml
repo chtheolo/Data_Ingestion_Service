@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+    db:
+        container_name: postgres_data_ingestion_service
+        restart: always
+        image: postgres
+        ports:
+            - ${PGPORT}:${PGPORT}
+        environment:
+            POSTGRES_USER: ${PGUSER}
+            # POSTGRES_HOST: ${PGHOST}
+            POSTGRES_DB: ${PGDB}
+            POSTGRES_PASSWORD: ${PGPASSWORD}
+        volumes:
+            - ./database/init_tables.sh:/docker-entrypoint-initdb.d/init_tables.sh
+            - ./pgdata:/var/lib/postgresql/data
+    app:
+        container_name: data_ingestion_service
+        restart: always
+        volumes:
+            - ".:/usr/src/Data_Ingestion_Service"
+        build: .
+        ports:
+            - "3000:3000"
+        links:
+            - db
+        depends_on:
+            - db
