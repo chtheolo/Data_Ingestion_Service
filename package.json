@@ -1,0 +1,30 @@
+{
+  "name": "data_ingestion_service",
+  "version": "1.0.0",
+  "description": "A service for storing sensor data and generating alerts when a sensor value reaches a threshold.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chtheolo/Data_Ingestion_Service.git"
+  },
+  "author": "Chris Theologou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chtheolo/Data_Ingestion_Service/issues"
+  },
+  "homepage": "https://github.com/chtheolo/Data_Ingestion_Service#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
