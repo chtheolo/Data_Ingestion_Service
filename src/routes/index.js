@@ -18,6 +18,7 @@ module.exports = (app) => {
     routes.api.use('/data', routes.data);
     routes.data
         .get('/', controllers.data.get)
+        .put('/', controllers.data.put)
 
     /** Set url for API group routes **/
     app.use('/', routes.api);
