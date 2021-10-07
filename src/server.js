@@ -12,7 +12,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('../config');
 const router = require('./routes');
-// const pg_pool = require('./db_pool/pg_pool');
 
 async function main() {
 
