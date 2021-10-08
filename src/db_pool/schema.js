@@ -6,30 +6,30 @@ exports.conditions = {
                 params: {
                     sensor_id: {
                         sql_param: 'sensor_id',
-                        sql_value: '=',
+                        sql_operator: '=',
                         type: String
                     },
                     time_since: {
                         sql_param: 'time',
-                        sql_value: '>=',
+                        sql_operator: '>=',
                         type: Number,
                     },
                     time_until: {
                         sql_param: 'time',
-                        sql_value: '<=',
+                        sql_operator: '<=',
                         type: Number,
                     },
                     value_gt: {
                         sql_param: 'value',
-                        sql_value: '>'
+                        sql_operator: '>'
                     },
                     value_eq: {
                         sql_param: 'value',
-                        sql_value: '='
+                        sql_operator: '='
                     },
                     value_lt: {
                         sql_param: 'value',
-                        sql_value: '<'
+                        sql_operator: '<'
                     },
                 },
                 requirement: {
@@ -38,7 +38,7 @@ exports.conditions = {
                 // agregations: {
                 //     value: {
                 //         sql_param: 'value',
-                //         sql_value: {
+                //         sql_operator: {
                 //             min,
                 //             max,
                 //             avg
@@ -50,15 +50,15 @@ exports.conditions = {
                 params: {
                     sensor_id: {
                         sql_param: 'sensor_id',
-                        sql_value: '='
+                        sql_operator: '='
                     },
                     time: {
                         sql_param: 'time',
-                        sql_value: '='
+                        sql_operator: '='
                     },
                     value: {
                         sql_param: 'value',
-                        sql_value: '='
+                        sql_operator: '='
                     }
                 }
             }
@@ -69,7 +69,7 @@ exports.conditions = {
                 params: {
                     sensor_id: {
                         sql_param: 'sensor_id',
-                        sql_value: '=',
+                        sql_operator: '=',
                     },
                 },
                 requirement: {
@@ -86,7 +86,7 @@ exports.conditions = {
             params: {
                 sensor_id: {
                     sql_param: 'sensor_id',
-                    sql_value: '=',
+                    sql_operator: '=',
                 },
             },
             requirement: {
