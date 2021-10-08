@@ -1,5 +1,6 @@
 const express = require('express');
 const crud = require('../helpers');
+const controls = require('../../controls');
 
 const endpoint = '/data';
 
@@ -34,6 +35,11 @@ exports.put = function(req, res) {
 
         try {
             let rows = await crud.update(req.body, endpoint);
+            
+            /**call check_thresholds for every new sensor value*/
+            let s_id = {sensor_id: req.body.sensor_id};
+            controls.checkThresholds(s_id, req.body.value);
+
             return res.status(200).send(rows/*result.rows*/);
         } 
         catch (error) {
