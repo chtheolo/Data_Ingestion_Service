@@ -50,9 +50,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" -d "$POSTGRES_DB" <<-EOSQL
     
     INSERT INTO thresholds(threshold_max_value, threshold_min_value, sensor_id) values
     (100, -100, '1'),
-    (90, 10, '2'),
-    (1000, -1000, '3'),
-    (500, 0, '4');
+    (90, 10, '2');
 
     CREATE TABLE IF NOT EXISTS user_sensor(
         user_id INT NOT NULL,
@@ -69,3 +67,6 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" -d "$POSTGRES_DB" <<-EOSQL
     (4, '4');
 
 EOSQL
+
+    # (1000, -1000, '3'),
+    # (500, 0, '4');

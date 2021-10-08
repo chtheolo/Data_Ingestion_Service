@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+    app:
+        container_name: data_ingestion_service
+        restart: always
+        # volumes:
+        #     - "./api_service:/usr/src/Data_Ingestion_Service"
+        build: ./api_service
+        ports:
+            - "3000:3000"
+        environment:
+            PORT: ${PORT}
+            # HOST: ${PGPASSWORD}
+            PGHOST: ${PGHOST}
+            PGUSER: ${PGUSER}
+            PGDB: ${PGDB}
+            PGPORT: ${PGPORT}
+            PGPASSWORD: ${PGPASSWORD}
+        # links:
+        #     - db
+        # depends_on:
+        #     - db
