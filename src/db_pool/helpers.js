@@ -33,7 +33,7 @@ exports.sql_Get_statement = async function(source, endpoint) {
             sql_query_params.push(`$${i}`);
             sql_query_values.push(source[key]);
              
-            where_cluase += Schema.conditions.endpoints[endpoint].get.params[key].sql_param + Schema.conditions.endpoints[endpoint].get.params[key].sql_value + `$${i}`;
+            where_cluase += Schema.conditions.endpoints[endpoint].get.params[key].sql_param + Schema.conditions.endpoints[endpoint].get.params[key].sql_operator + `$${i}`;
             if (i<(Object.keys(source)).length) {
                 where_cluase += ' AND ';
             }
