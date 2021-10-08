@@ -2,17 +2,31 @@ const express = require('express');
 
 // Route Controllers
 const controllers = {
-    data: require('./data')
+    thresholds: require('./thresholds'),
+    sensors: require('./sensors'),
+    data: require('./data'),
 };
 
 // Route Groups
 const routes = {
+    thresholds: express.Router(),
+    sensors: express.Router(),
     data: express.Router(),
     api: express.Router()
 };
 
 
 module.exports = (app) => {
+
+    /**     Thresholds     **/
+    routes.api.use('/thresholds', routes.thresholds)
+    routes.thresholds
+        .get('/', controllers.thresholds.get)
+
+    /**    Sensors     **/
+    routes.api.use('/sensors', routes.sensors)
+    routes.sensors
+        .get('/', controllers.sensors.get)
 
     /**     Data     **/
     routes.api.use('/data', routes.data);
