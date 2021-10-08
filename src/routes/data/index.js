@@ -1,5 +1,4 @@
 const express = require('express');
-const db = require('../../db_pool/pg_pool');
 const crud = require('../helpers');
 
 const endpoint = '/data';
