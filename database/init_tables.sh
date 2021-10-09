@@ -29,6 +29,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" -d "$POSTGRES_DB" <<-EOSQL
 
     CREATE TABLE IF NOT EXISTS sensors(
         sensor_id VARCHAR(255),
+        type VARCHAR(255),
         created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
         updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
@@ -45,7 +46,8 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" -d "$POSTGRES_DB" <<-EOSQL
         threshold_min_value FLOAT,
         sensor_id VARCHAR(255),
         created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-        updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+        UNIQUE(sensor_id)
     );
     
     INSERT INTO thresholds(threshold_max_value, threshold_min_value, sensor_id) values
