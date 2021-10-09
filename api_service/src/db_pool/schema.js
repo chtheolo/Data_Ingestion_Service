@@ -83,15 +83,49 @@ exports.conditions = {
         },
         '/sensors': {
             table: 'sensors',
-            params: {
-                sensor_id: {
-                    sql_param: 'sensor_id',
-                    sql_operator: '=',
+            get: {
+                params: {
+                    sensor_id: {
+                        sql_param: 'sensor_id',
+                        sql_operator: '=',
+                    },
                 },
+                requirement: {
+                        sql_param_1: 'sensor_id',
+                        sql_param_2: 'type'
+                }
             },
-            requirement: {
-                    sql_param: 'sensors'
+            put: {
+                params: {
+                    sensor_id: {
+                        sql_param: 'sensor_id',
+                        sql_operator: '='
+                    },
+                    type: {
+                        sql_param: 'type',
+                        sql_operator: '='
+                    },
+                }
             }
+        },
+        '/user_sensor': {
+            table: 'user_sensor',
+            get: {
+                params: {
+                    user_id: {
+                        sql_param: 'user_id',
+                        sql_operator: '=',
+                    },
+                    sensor_id: {
+                        sql_param: 'sensor_id',
+                        sql_operator: '=',
+                    },
+                },
+                requirement: {
+                        sql_param_1: 'sensor_id',
+                        sql_param_2: 'user_id'
+                }
+            },
         },
     }
 }
