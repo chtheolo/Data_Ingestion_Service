@@ -15,6 +15,10 @@ const routes = {
     api: express.Router()
 };
 
+/*============  MIDDLEWARE FUNCTIONS ============*/
+const controls = require('./../controls');
+const notifications = require('./../notifications');
+/*===============================================*/
 
 module.exports = (app) => {
 
@@ -22,6 +26,8 @@ module.exports = (app) => {
     routes.api.use('/thresholds', routes.thresholds)
     routes.thresholds
         .get('/', controllers.thresholds.get)
+        .put('/', controllers.thresholds.put)
+        // .put('/', controllers.user_sensor.get, controllers.thresholds.put)
 
     /**    Sensors     **/
     routes.api.use('/sensors', routes.sensors)
@@ -32,7 +38,7 @@ module.exports = (app) => {
     routes.api.use('/data', routes.data);
     routes.data
         .get('/', controllers.data.get)
-        .put('/', controllers.data.put)
+        .put('/', controls.checkThresholds, notifications.email, controllers.data.put)
 
     /** Set url for API group routes **/
     app.use('/', routes.api);
