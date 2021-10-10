@@ -1,3 +1,11 @@
+/**
+ * @file        - notification/index.js
+ * @summary     - Middleware for notifications.
+ * @description - For each new sensor value that passes the threshold value
+ *                sends a notification email to all users that has connection 
+ *                with that sensor.
+ * @functions   - email()
+ */
 const crud = require('../routes/helpers');
 
 exports.email = async function (req, res, next) {

@@ -1,5 +1,18 @@
+/**
+ * @file        - controls/index.js
+ * @summary     - Middleware for checking for thresholds.
+ * @description - For each new sensor value checking if it has been set a theshold 
+ *                value for that sensor. If yes call the notication function.
+ * @functions   - checkThresholds()
+ */
 const crud = require('../routes/helpers');
 
+/**
+ * @param {Request Express Object} req
+ * @param {Response Express Object} res
+ * @param {Express Object} next
+ * @returns {}        [Call the next middleware function.]
+ */
 exports.checkThresholds = async function(req, res, next) {
     try {
         let device = {sensor_id: req.body.sensor_id};

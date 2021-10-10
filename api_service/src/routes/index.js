@@ -27,7 +27,6 @@ module.exports = (app) => {
     routes.thresholds
         .get('/', controllers.thresholds.get)
         .put('/', controllers.thresholds.put)
-        // .put('/', controllers.user_sensor.get, controllers.thresholds.put)
 
     /**    Sensors     **/
     routes.api.use('/sensors', routes.sensors)

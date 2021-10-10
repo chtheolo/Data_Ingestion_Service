@@ -1,5 +1,4 @@
 const request = require('supertest');
-const assert = require('assert');
 const expect = require('expect');
 const server = require('./../../../src/server');
 
