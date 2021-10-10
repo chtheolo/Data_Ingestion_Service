@@ -7,10 +7,11 @@
 const { Pool } = require('pg');
 const config = require('../../config');
 
-
+console.log(config.dbClient.host);
 const pool = new Pool({
     user: config.dbClient.user,
     host: config.dbClient.host,
+    // host: 'localhost',
     database: config.dbClient.database,
     // password: config.dbClient.password,
     port: config.dbClient.port,

@@ -11,11 +11,14 @@ const service = {
     port: process.env.PORT
 };
 
+var client_pg_host;
+process.env.NODE_ENV === 'local' ? client_pg_host=process.env.HOST : client_pg_host=process.env.PGHOST;
+
 const dbClient = {
     user: process.env.PGUSER,
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT,
-    host: process.env.PGHOST,
+    host: client_pg_host,
     database: process.env.PGDB
 };
 

@@ -13,6 +13,8 @@ const bodyParser = require('body-parser');
 const config = require('../config');
 const router = require('./routes');
 
+var server;
+
 async function main() {
 
     /** If there is not define a PORT variable in .env file, then stop the service. */
@@ -26,17 +28,16 @@ async function main() {
     app.use(bodyParser.urlencoded({ extended: false })); // For parsing req.body (json and normal)
     app.use(bodyParser.json());
 
-    var server = app.listen(config.service.port, (error) => {
+    // var server = app.listen(config.service.port, (error) => {
+    server = app.listen(config.service.port, (error) => {
         if (error) {
             return console.error('Error: ', error);
         }
         console.log(`Server ::  Running @ 'http://localhost:${config.service.port}`);
     });
     router(app);
-
-    return server;
 }
 
-const server = main();
+main();
 
 module.exports = server;
