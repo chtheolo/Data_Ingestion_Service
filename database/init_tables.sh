@@ -11,6 +11,16 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" -d "$POSTGRES_DB" <<-EOSQL
         UNIQUE (sensor_id, time)
     );
 
+    INSERT INTO sensor_data(sensor_id, time, value) values
+    ('1', 1633949941887, 22.2),
+    ('1', 1633950006620, 32.65),
+    ('2', 1633950042904, 102.2),
+    ('2', 1633950053400, 98.7),
+    ('3', 1633950063693, -2.9),
+    ('3', 1633949941887, -10.2),
+    ('4', 1633950071002, 665.2),
+    ('4', 1633949941887, -1000.0);
+
     CREATE TABLE IF NOT EXISTS users(
         user_id SERIAL PRIMARY KEY,
         first_name VARCHAR(255),
@@ -69,6 +79,3 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" -d "$POSTGRES_DB" <<-EOSQL
     (4, '4');
 
 EOSQL
-
-    # (1000, -1000, '3'),
-    # (500, 0, '4');
