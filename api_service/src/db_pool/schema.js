@@ -33,7 +33,8 @@ exports.conditions = {
                     },
                 },
                 requirement: {
-                    sql_param: 'value'
+                    sql_param_1: 'value',
+                    sql_param_2: 'time',
                 }
                 // agregations: {
                 //     value: {
