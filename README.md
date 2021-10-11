@@ -77,6 +77,14 @@ In my case, I choose to use a [**PostgreSQL**](https://www.postgresql.org/) beca
 
 <img width="656" alt="db" src="https://user-images.githubusercontent.com/25862065/136763551-f35aac65-8bda-4214-b478-40a93e0f407d.png">[DB Schema](#db_schema)
 
+### HTTP Verbs
+| HTTP METHOD | GET | PARAMS | PUT | BODY |
+| ----------- | --- | ------ | --- | ---- |
+| /data | Retrieve sensor data| ?sensor_id=1 <br /> ?sensor_id=1&time_until=20211007115923 <br /> ?sensor_id=2&time_until=1633950053400&time_since=1633950042904<br /> ?sensor_id=2&value_lt=102.0&time_until=1633950053400&time_since=1633950042904| Insert new sensor data | {<br/>"sensor_id": "1",<br />"time": 1633953094173, <br />"value": 1900.2 <br />} |
+| /thresholds | Retrieve thresholds for a specific sensor| ?sensor_id=1 | Set MAX and MIN thresholds for a sensor | { <br />"sensor_id": "1",<br /> "threshold_max_value": 1120.1,<br /> "threshold_min_value": -1120.1<br /> } |
+| /sensors | Retrieve all sensors |\- | \- | \- |
+
+
 1. ### '/data' 
 
 The incoming sensor data are being saved into the **sensor_data** table. Sensors send their values into the endpoint **'/data'** with a PUT request. If a packet body misses either sensor_id or time, 
